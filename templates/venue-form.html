@@ -1,0 +1,25 @@
+{% extends 'base.html'%}
+
+{% block body%}
+
+<div class="container center">
+    <h1>Add Venue to the database</h1>
+
+    {% if submitted %}
+    <h5>Your Venue was Submitted Successfully!!!</h5>
+
+    {% else %}
+       <form action="" method=POST>
+        {% csrf_token %}
+        {{modelForm.as_p}}
+
+    <input type="submit" class="btn btn-secondary" value="Submit">
+
+    </form>
+
+    {% endif %}
+
+ 
+</div>
+
+{% endblock%}
