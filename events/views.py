@@ -2,8 +2,18 @@ from django.shortcuts import render
 from events import form
 from events.form import VenueForm
 from events.models import Event, MyClubUser, Venue
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect,HttpResponse
 # Create your views here.
+
+def search_venue(request):
+    if request.method == 'POST':
+        searched = request.POST['searched']
+        venues = Venue.objects.filter(venue_place__contains= searched)
+        return render(request, 'search_venues.html', {'searched' : searched, 'venues': venues})
+    
+    else:
+        return render(request, 'search_venues.html')
+
 
 # views for list of venues 
 def list_venues(request):
@@ -22,7 +32,7 @@ def add_venue(request):
         modelForm = VenueForm(request.POST)
         if modelForm.is_valid():
             modelForm.save()
-            return HttpResponseRedirect('/add_venue?submitted=True')
+            return render(request, 'success.html')
 
     else:
         modelForm = VenueForm

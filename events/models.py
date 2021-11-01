@@ -7,7 +7,6 @@ from django.db.models.deletion import SET, SET_NULL
  
 class Venue(models.Model):
     venue_place = models.CharField('Place of Event', max_length=200)
-    venue_image = models.ImageField('Venue Picture',upload_to='pics')
     address = models.CharField('Venue Address', max_length=200)
     zip_code = models.CharField('Zip Code', max_length=100)
     phone = models.CharField('Contact Number', max_length=100)

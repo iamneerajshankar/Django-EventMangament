@@ -2,16 +2,20 @@
 
 {% block body%}
 
-<div class="container">
+<div class="container" style="display: flex; flex-flow: row wrap;
+  align-content: space-between;
+  justify-content: space-between;">
 {% for venue in venue_list%}
-    <div class="card" style="width: 18rem;">
-  <img src="{{venue.venue_image.url}}" class="card-img-top" alt="...">
+<div class="card" style="width: 18rem;">
   <div class="card-body">
     <h5 class="card-title">{{venue.venue_place}}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">{{venue.email_address}}</h6>
     <p class="card-text">{{venue.address}}</p>
-    <a href="{% url 'show-venue' venue.id%}" class="btn btn-primary">View Details</a>
+    <a href="{% url 'show-venue' venue.id%}" class="card-link">View Details</a>
+    <a href="#" class="card-link">Another link</a>
   </div>
 </div>
 {% endfor %}
+
 </div>
 {% endblock body%}

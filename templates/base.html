@@ -36,6 +36,11 @@
           <a class="nav-link disabled">Disabled</a>
         </li>
       </ul>
+      <form class="d-flex" method=POST action="{% url 'search-venue'%}">
+        {% csrf_token %}
+        <input class="form-control me-2" type="search" placeholder="Search Venues" name ="searched"aria-label="Search">
+        <button class="btn btn-outline-secondary" type="submit">Search</button>
+      </form>
     </div>
   </div>
 </nav>

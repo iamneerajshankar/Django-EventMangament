@@ -7,4 +7,4 @@ class VenueForm(ModelForm):
     class Meta:
 
         model = Venue
-        fields = ('venue_place', 'venue_image', 'address', 'zip_code', 'phone', 'web_address', 'email_address')
+        fields = ('venue_place', 'address', 'zip_code', 'phone', 'web_address', 'email_address')

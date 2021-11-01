@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block body%}
+
+<div class="container">
+{% if searched%}
+{% for venue in venues%}
+<h1>Venues Matching your Preference-</h1>
+<a href="{% url 'show-venue' venue.id%}">{{venue.venue_place}} - {{venue.phone}}</a>
+{% endfor %}
+
+{% else %}
+<h1>Oops! You did not search anything</h1>
+{% endif %}
+
+</div>
+{% endblock body%}
