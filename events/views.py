@@ -3,15 +3,22 @@ from events import form
 from events.form import EventForm, VenueForm
 from events.models import Event, MyClubUser, Venue
 from django.http import HttpResponseRedirect,HttpResponse
+
+# Pagination 
+from django.core.paginator import Paginator
 # Create your views here.
-
-
-
 
 #************************Shows the list of venues****************************************
 def list_venues(request):
-    venue_list = Venue.objects.all().order_by('venue_place')
-    return render(request, 'venue-list.html', {'venue_list':venue_list})
+   # venue_list = Venue.objects.all().order_by('venue_place')
+
+    #setting up the pagination
+    p = Paginator(Venue.objects.all(), 6)
+    page = request.GET.get('page')
+    venuesList = p.get_page(page)
+   # nums = "a" * venuesList.paginator.num_pages
+
+    return render(request, 'venue-list.html', {'venuesList':venuesList}, )
 
 #************************Shows details about single venue********************************
 def show_venue(request, venue_id):

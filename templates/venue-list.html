@@ -5,7 +5,7 @@
 <div class="container" style="display: flex; flex-flow: row wrap;
   align-content: space-between;
   justify-content: space-between;">
-{% for venue in venue_list%}
+{% for venue in venuesList%}
 <div class="card" style="width: 18rem;">
   <div class="card-body">
     <h5 class="card-title">{{venue.venue_place}}</h5>
@@ -18,5 +18,31 @@
 </div>
 {% endfor %}
 
+
+
 </div>
+
+<br>
+{{venuesList}}
+<br>
+Current Page: {{venuesList.number}}
+<br>
+Total Pages: {{venuesList.paginator.num_pages}}
+<br> 
+
+<nav aria-label="Page navigation example">
+  <ul class="pagination">
+  {%if venuesList.has_previous%}
+    <li class="page-item"><a class="page-link" href="?page=1">First</a></li>
+    <li class="page-item"><a class="page-link" href="?page={{venuesList.previous_page_number}}">Previous</a></li>
+    {% endif %}
+    <!--{% for i in nums%}
+    <li class="page-item"><a class="page-link" href="?page={{forloop.counter}}">forloop.counter</a></li>
+    {% endfor%} -->
+    {%if venuesList.has_next%}
+    <li class="page-item"><a class="page-link" href="?page={{venuesList.next_page_number}}">Next</a></li>
+    <li class="page-item"><a class="page-link" href="?page={{venuesList.paginator.num_pages}}">Last</a></li>
+    {% endif %}
+  </ul>
+</nav>
 {% endblock body%}
