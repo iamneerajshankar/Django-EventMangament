@@ -14,8 +14,10 @@
         {% for user in event.attendees.all%}
         <p>{{user}}</p>
         {% endfor%}
+        <a href="{% url 'update-event' event.id%}" class="card-link">Update Details</a>
       
     </div>
     {% endfor %}
+    
 </div>
 {% endblock body%}

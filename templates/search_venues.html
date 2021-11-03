@@ -4,9 +4,10 @@
 
 <div class="container">
 {% if searched%}
-{% for venue in venues%}
 <h1>Venues Matching your Preference-</h1>
-<a href="{% url 'show-venue' venue.id%}">{{venue.venue_place}} - {{venue.phone}}</a>
+{% for venue in venues%}
+
+<a href="{% url 'show-venue' venue.id%}">{{venue.venue_place}} - {{venue.phone}}</a><br><br>
 {% endfor %}
 
 {% else %}
