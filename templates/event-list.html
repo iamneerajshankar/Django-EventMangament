@@ -14,7 +14,10 @@
         {% for user in event.attendees.all%}
         <p>{{user}}</p>
         {% endfor%}
+       
+        {%if user.is_authenticated and user.is_superuser%}
         <a href="{% url 'update-event' event.id%}" class="card-link">Update Details</a>
+        {%endif%}
       
     </div>
     {% endfor %}

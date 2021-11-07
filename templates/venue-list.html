@@ -12,8 +12,10 @@
     <h6 class="card-subtitle mb-2 text-muted">{{venue.email_address}}</h6>
     <p class="card-text">{{venue.address}}</p>
     <a href="{% url 'show-venue' venue.id%}" class="card-link btn-primary">View</a>
+    {%if user.is_authenticated and user.is_superuser%}
     <a href="{% url 'update-venue' venue.id%}" class="card-link btn-success">Update</a>
     <a href="{% url 'delete-venue' venue.id%}" class="card-link btn-danger">Delete</a>
+    {%endif%}
   </div>
 </div>
 {% endfor %}

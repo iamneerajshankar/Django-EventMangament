@@ -1,6 +1,7 @@
 {% extends 'base.html'%}
 
 {% block body%}
+{%if user.is_authenticated and user.is_superuser%}
 
 <div class="container center">
 
@@ -21,5 +22,8 @@
 
  
 </div>
+{% else%}
+<h3>Sorry! Only Admin can add Posts</h3>
+{%endif%}
 
 {% endblock%}

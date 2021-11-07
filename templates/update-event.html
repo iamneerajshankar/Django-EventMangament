@@ -1,6 +1,7 @@
 {% extends 'base.html'%}
 
 {% block body%}
+{%if user.is_authenticated and user.is_superuser%}
 
 <div class="container center">
     <h1>Update The Venue</h1>
@@ -16,5 +17,6 @@
 
  
 </div>
+{%endif%}
 
 {% endblock%}
