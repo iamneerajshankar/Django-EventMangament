@@ -2,11 +2,11 @@
 
 {% block body%}
 
-<div class="container" style="display: flex; flex-flow: row wrap;
+<div class="container  my-4" style="display: flex; flex-flow: row wrap;
   align-content: space-between;
   justify-content: space-between;">
 {% for venue in venuesList%}
-<div class="card" style="width: 18rem;">
+<div class="card my-3" style="width: 18rem;">
   <div class="card-body">
     <h5 class="card-title">{{venue.venue_place}}</h5>
     <h6 class="card-subtitle mb-2 text-muted">{{venue.email_address}}</h6>
